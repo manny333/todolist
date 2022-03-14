@@ -2,6 +2,23 @@ server:
   port: 8585
   error:
     include-stacktrace: never
+spring:
+  datasource:
+    url: "jdbc:mysql://localhost:3306/db_dimex?useSSL=false&serverTimeZone=America_Los_Angeles"
+    username: "root"
+    password: "77661151"
+    driver-class-name: "com.mysql.cj.jdbc.Driver"
+  jpa:
+    database-plataform: "org.hibernate.dialect.MySQL8Dialect"
+    show-sql: true
+    hibernate:
+      ddl-auto: "create-drop"
+login:
+  level:
+    org:
+      hibernate:
+        SQL: "debug"
+      
 jms:
   jwt:
     security:

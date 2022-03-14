@@ -37,7 +37,7 @@ public class AuthService {
 		
 		JwtResponse jwt = JwtResponse.builder()
 				.tokenType("bearer")
-				.accessToken(jwtIO.generateToken("Hola mundo"))
+				.accessToken(jwtIO.generateToken(user))//Pending
 				.issuedAt(dateUtils.getDateMillis()+"")
 				.clientId(clientId)
 				.expiresIn(3600)
