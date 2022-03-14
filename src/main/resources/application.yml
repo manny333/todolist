@@ -1,0 +1,21 @@
+server:
+  port: 8585
+  error:
+    include-stacktrace: never
+jms:
+  jwt:
+    security:
+      enabled: true
+    timezone: "America/Los_Angeles"
+    issuer: "www.dimex.com"
+    token: 
+      auth: 
+        path: "/v1.0/oauth/client_credential/accesstoken"
+      secret: "emmanuel_hernandez@private_key"
+      expires-in: 3600 #seconds
+    excluded: 
+      path: "/v1.0/multi,v1.0/otraexclusion"
+      
+      
+      
+  
