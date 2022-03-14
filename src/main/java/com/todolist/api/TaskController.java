@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -37,5 +38,16 @@ public class TaskController {
 			return ResponseEntity.notFound().build();
 		}
 		return ResponseEntity.ok(oTask);
+	}
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> delete(@PathVariable Long id){
+		Optional<Task> oTask = taskService.findById(id);
+
+		if (oTask.isPresent()) {
+			taskService.deleteById(id);
+			return ResponseEntity.ok(oTask);
+		}else {
+			return ResponseEntity.notFound().build();
+		}
 	}
 }
